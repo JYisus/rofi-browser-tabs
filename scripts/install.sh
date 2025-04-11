@@ -34,6 +34,13 @@ main() {
   # OS
   case "$OS" in
   Linux)
+    if command -v "brave-browser" >/dev/null 2>&1; then
+      on_key 'Install for brave-browser? (y/n)'
+      if test "$key" = 'y'; then
+        browser_install "$HOME/.config/BraveSoftware/Brave-Browser/NativeMessagingHosts" "brave-browser"
+      fi
+    fi
+
     if command -v "google-chrome" >/dev/null 2>&1; then
       on_key 'Install for google-chrome? (y/n)'
       if test "$key" = 'y'; then
